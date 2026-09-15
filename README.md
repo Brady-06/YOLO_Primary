@@ -56,8 +56,15 @@
 | 2 | COCO128 + YOLO11n | 02–06 | 基线、敏感度、独立剪枝、贪心剪枝、梯度分档 |
 | 3 | COCO2017 + YOLO11s | 07–10 | 官方基线、训练尝试、敏感度、贪心剪枝 |
 | 4 | COCO128 + 剪枝后的 YOLO11n + DINOv2 | 12–13 | 对实验 05 剪枝模型进行 P4 单尺度和 P3/P4/P5 多尺度特征蒸馏 |
+| 5 | COCO2017 + YOLO11s | 14–15 | 模型谱系核对、恢复诊断与正式Taylor剪枝入口 |
 
 实验 11 是结构化剪枝方法与代码速查，并包含 GroupNorm 等探索，不作为统一口径的正式性能结论。
+
+实验 14 尚未运行训练。计划、基线哈希和服务器运行边界见
+[`experiment14_coco2017_recovery_plan.md`](reports/experiment14_coco2017_recovery_plan.md)，
+恢复诊断入口为 `scripts/diagnose_coco2017_recovery.py`。
+正式Taylor入口为 `scripts/prune_taylor_coco2017.py`；两者默认只做预检，
+只有显式传入 `--execute` 才会启动完整COCO验证、训练或剪枝。
 
 ## 环境
 
@@ -78,6 +85,10 @@
 ~~~
 
 代码默认从仓库根目录运行。
+
+当前“YOLO剪枝蒸馏初步尝试”副本中的旧 `.venv` 仍指向已经不存在的
+Windows Python，不能作为可复现环境。正式COCO2017实验使用新的服务器环境；
+在确认服务器镜像和CUDA版本后再生成锁定依赖，避免沿用失效虚拟环境。
 
 ## 数据和基础权重
 

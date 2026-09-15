@@ -1,0 +1,7 @@
+# Install a CUDA-compatible PyTorch build from the GPU server image first.
+# Experiment 10 used torch 2.13.0+cu132 on an A800, but torch is intentionally
+# not pinned here because the correct wheel depends on the rented server CUDA.
+ultralytics==8.4.144
+torch-pruning==1.6.1
+PyYAML>=6.0,<7.0
+

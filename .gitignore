@@ -12,3 +12,5 @@
 # Disposable Ultralytics validation and distillation smoke outputs
 /runs/detect/
 /runs/distill/smoke*/
+/runs/diagnostics/
+/runs/prune/experiment15_taylor_coco2017/
