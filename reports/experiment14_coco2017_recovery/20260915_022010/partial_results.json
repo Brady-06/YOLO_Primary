@@ -1,0 +1,74 @@
+[
+  {
+    "weights": "/root/YOLO/weights/yolo11s.pt",
+    "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5",
+    "map50": 0.6310753323248511,
+    "map50_95": 0.4632916584757665,
+    "precision": 0.7012085094253242,
+    "recall": 0.5787877031065092,
+    "validation_inference_ms": 0.776532152800064,
+    "model": "parent",
+    "checkpoint": "source",
+    "selected": true
+  },
+  {
+    "weights": "/root/YOLO/runs/diagnostics/experiment14_coco2017_recovery/20260915_022010/training/parent/weights/best.pt",
+    "sha256": "11ac6d4d68a57b46b8d8ecc7fb3d5a913fe6e8d3660ffce19bee57a78328d0ba",
+    "map50": 0.5842300038664596,
+    "map50_95": 0.42062458771141914,
+    "precision": 0.6710967835625893,
+    "recall": 0.5385362580777986,
+    "validation_inference_ms": 0.7602737328006697,
+    "model": "parent",
+    "checkpoint": "best",
+    "selected": false
+  },
+  {
+    "weights": "/root/YOLO/runs/diagnostics/experiment14_coco2017_recovery/20260915_022010/training/parent/weights/last.pt",
+    "sha256": "970440253fcf15b73ef6fbae6a2a1c9a7b1aeac81ab989b06f4030dd11eac359",
+    "map50": 0.5842300038664596,
+    "map50_95": 0.42062458771141914,
+    "precision": 0.6710967835625893,
+    "recall": 0.5385362580777986,
+    "validation_inference_ms": 0.7615639844001634,
+    "model": "parent",
+    "checkpoint": "last",
+    "selected": false
+  },
+  {
+    "weights": "/root/YOLO/runs/prune/experiment15_taylor_coco2017/20260915_020645/pruned_raw.pt",
+    "sha256": "9fba0cd61fe5fd46ae2286153f8ef65205bcb309f7baec6f9f1d61fe7f1d1f0b",
+    "map50": 0.2537151623623037,
+    "map50_95": 0.1723172305198485,
+    "precision": 0.6928085483267992,
+    "recall": 0.2205392056512218,
+    "validation_inference_ms": 0.751871435400426,
+    "model": "pruned",
+    "checkpoint": "source",
+    "selected": false
+  },
+  {
+    "weights": "/root/YOLO/runs/diagnostics/experiment14_coco2017_recovery/20260915_022010/training/pruned/weights/best.pt",
+    "sha256": "7948404265b3034f61315e8e82ec5ad8b53a8b51a9737bccb73e7f57143ee356",
+    "map50": 0.5783007087038868,
+    "map50_95": 0.4144433334710498,
+    "precision": 0.6571981289531648,
+    "recall": 0.5294041789822072,
+    "validation_inference_ms": 0.745272467599898,
+    "model": "pruned",
+    "checkpoint": "best",
+    "selected": true
+  },
+  {
+    "weights": "/root/YOLO/runs/diagnostics/experiment14_coco2017_recovery/20260915_022010/training/pruned/weights/last.pt",
+    "sha256": "625ff2083f0bd066edf3ed618c846f4db4c299fd3c88a328e9d0ce265bc3bb79",
+    "map50": 0.5783007087038868,
+    "map50_95": 0.4144433334710498,
+    "precision": 0.6571981289531648,
+    "recall": 0.5294041789822072,
+    "validation_inference_ms": 0.7445623065996188,
+    "model": "pruned",
+    "checkpoint": "last",
+    "selected": false
+  }
+]
