@@ -14,3 +14,6 @@
 /runs/distill/smoke*/
 /runs/diagnostics/
 /runs/prune/experiment15_taylor_coco2017/
+/runs/analysis/
+/runs/prune/experiment17_tiered_taylor_coco2017/
+/runs/recovery/
