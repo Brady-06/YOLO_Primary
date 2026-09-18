@@ -1,0 +1,4 @@
+node,checkpoint,tune_map50_95,tune_map50,val_map50_95,val_map50,val_precision,val_recall,weights,sha256,selected
+15,source,0.3112494021325204,0.4668718146239497,,,,,/root/YOLO/runs/prune/experiment20_taylor_ladder_coco2017/20260917_023832/stage_15/bn_m0005_8192.pt,6b6c29d091358a8cefbe6360315463bad1e25186c012a4ff8850e39c73e8e675,False
+15,best,0.45147300578406524,0.6165606373016932,0.4273737547557188,0.5911997163673446,0.672015474940687,0.540367980505477,/root/YOLO/runs/recovery/experiment19b_coco2017/node15_yolo11s_kd/20260917_101816/training/weights/best_clean.pt,2441f27a86b5e04046b409a367b1df4cee730703f98b1778c85433ccf5601404,True
+15,last,0.45147300578406524,0.6165606373016932,,,,,/root/YOLO/runs/recovery/experiment19b_coco2017/node15_yolo11s_kd/20260917_101816/training/weights/last_clean.pt,3da90b684bcd388e8262fc4d966a6f5f24549a39cb5ab25318bca121ad4c7b81,False

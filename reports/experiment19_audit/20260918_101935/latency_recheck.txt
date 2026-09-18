@@ -1,0 +1,5 @@
+NVIDIA A800-SXM4-80GB, 0 %, 0 MiB
+NVIDIA A800-SXM4-80GB, 0 %, 0 MiB
+yolo11s_official: params=9458752 mean=7.86ms median=7.80ms p90=7.90ms min=7.71ms max=12.77ms
+node15_15pct: params=8063896 mean=7.76ms median=7.73ms p90=7.78ms min=7.65ms max=9.12ms
+node20_20pct: params=7474088 mean=7.99ms median=7.92ms p90=8.10ms min=7.84ms max=9.51ms

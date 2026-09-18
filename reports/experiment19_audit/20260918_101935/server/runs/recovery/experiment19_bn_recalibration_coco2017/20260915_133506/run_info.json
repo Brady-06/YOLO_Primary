@@ -1,0 +1,254 @@
+{
+  "started_at": "2026-09-15T13:35:06.849219+00:00",
+  "status": "complete",
+  "configuration": {
+    "pruning_run": "/root/YOLO/runs/prune/experiment17_tiered_taylor_coco2017/20260915_123525",
+    "sensitivity_run": "/root/YOLO/runs/analysis/experiment16_taylor_sensitivity_coco2017/20260915_122417",
+    "data": "/root/YOLO/configs/coco2017.yaml",
+    "dataset_root": "/root/datasets/coco",
+    "batch": 128,
+    "val_batch": 128,
+    "workers": 8,
+    "device": "0",
+    "seed": 42,
+    "extended": true,
+    "execute": true
+  },
+  "source": {
+    "path": "/root/YOLO/runs/prune/experiment17_tiered_taylor_coco2017/20260915_123525/pruned_raw.pt",
+    "sha256": "2d30d957891025d1c091a4a2af5baea343564eddf6f043102283d501f9b80468"
+  },
+  "finished_at": "2026-09-15T13:41:02.785117+00:00",
+  "results": [
+    {
+      "label": "raw",
+      "path": "/root/YOLO/runs/prune/experiment17_tiered_taylor_coco2017/20260915_123525/pruned_raw.pt",
+      "sha256": "2d30d957891025d1c091a4a2af5baea343564eddf6f043102283d501f9b80468",
+      "tune": {
+        "weights": "/root/YOLO/runs/prune/experiment17_tiered_taylor_coco2017/20260915_123525/pruned_raw.pt",
+        "sha256": "2d30d957891025d1c091a4a2af5baea343564eddf6f043102283d501f9b80468",
+        "map50": 0.6884565040746576,
+        "map50_95": 0.5143661054816875,
+        "precision": 0.7635965179516427,
+        "recall": 0.6096689003789763,
+        "validation_inference_ms": 0.795102795897229
+      }
+    },
+    {
+      "label": "preserve_m00025_8192",
+      "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m00025_8192.pt",
+      "sha256": "51ae8c040a511db753cc48b8a5bc33c17aaed432cc37aa815b524b4893230895",
+      "tune": {
+        "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m00025_8192.pt",
+        "sha256": "51ae8c040a511db753cc48b8a5bc33c17aaed432cc37aa815b524b4893230895",
+        "map50": 0.6954608433300999,
+        "map50_95": 0.520113071806227,
+        "precision": 0.7756308857049161,
+        "recall": 0.616189164002366,
+        "validation_inference_ms": 0.7861708593743799
+      },
+      "details": {
+        "images": 8192,
+        "bn_layers": 81,
+        "changed_bn_buffers": 243,
+        "momentum": 0.0025,
+        "reset": false,
+        "seconds": 13.044539247000102,
+        "sha256": "51ae8c040a511db753cc48b8a5bc33c17aaed432cc37aa815b524b4893230895"
+      }
+    },
+    {
+      "label": "preserve_m0005_8192",
+      "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_8192.pt",
+      "sha256": "6cf7d188930892a5b13cd70760aca874f407c714dc92b14351e605f8cd2e21d2",
+      "tune": {
+        "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_8192.pt",
+        "sha256": "6cf7d188930892a5b13cd70760aca874f407c714dc92b14351e605f8cd2e21d2",
+        "map50": 0.7011851358511543,
+        "map50_95": 0.5228276142209922,
+        "precision": 0.7766735438841395,
+        "recall": 0.6190439549178771,
+        "validation_inference_ms": 0.7864364433594062
+      },
+      "details": {
+        "images": 8192,
+        "bn_layers": 81,
+        "changed_bn_buffers": 243,
+        "momentum": 0.005,
+        "reset": false,
+        "seconds": 12.433444346000215,
+        "sha256": "6cf7d188930892a5b13cd70760aca874f407c714dc92b14351e605f8cd2e21d2"
+      }
+    },
+    {
+      "label": "preserve_m002_8192",
+      "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m002_8192.pt",
+      "sha256": "63d7f07cc618803b4b7a3c3ba8e69b6835ee209a92f8065939c4583332bd1724",
+      "tune": {
+        "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m002_8192.pt",
+        "sha256": "63d7f07cc618803b4b7a3c3ba8e69b6835ee209a92f8065939c4583332bd1724",
+        "map50": 0.6944360596879458,
+        "map50_95": 0.514522365297114,
+        "precision": 0.761238634833956,
+        "recall": 0.6108446948417141,
+        "validation_inference_ms": 0.7858280698238573
+      },
+      "details": {
+        "images": 8192,
+        "bn_layers": 81,
+        "changed_bn_buffers": 243,
+        "momentum": 0.02,
+        "reset": false,
+        "seconds": 12.229777282000214,
+        "sha256": "63d7f07cc618803b4b7a3c3ba8e69b6835ee209a92f8065939c4583332bd1724"
+      }
+    },
+    {
+      "label": "preserve_m00025_16384",
+      "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m00025_16384.pt",
+      "sha256": "2818424d383d3a469b2802c65899622930c7878cf5c4cfa99c1f13805583ab14",
+      "tune": {
+        "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m00025_16384.pt",
+        "sha256": "2818424d383d3a469b2802c65899622930c7878cf5c4cfa99c1f13805583ab14",
+        "map50": 0.7011939741365957,
+        "map50_95": 0.5227145146426211,
+        "precision": 0.7769005933313768,
+        "recall": 0.6191399698912682,
+        "validation_inference_ms": 0.7886593027333078
+      },
+      "details": {
+        "images": 16384,
+        "bn_layers": 81,
+        "changed_bn_buffers": 243,
+        "momentum": 0.0025,
+        "reset": false,
+        "seconds": 22.878221607999876,
+        "sha256": "2818424d383d3a469b2802c65899622930c7878cf5c4cfa99c1f13805583ab14"
+      }
+    },
+    {
+      "label": "preserve_m0005_16384",
+      "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_16384.pt",
+      "sha256": "b49bd983fe2a64d3aa64a849c24a6b7fc34a7af0e67a18e95649a16ecfd6b962",
+      "tune": {
+        "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_16384.pt",
+        "sha256": "b49bd983fe2a64d3aa64a849c24a6b7fc34a7af0e67a18e95649a16ecfd6b962",
+        "map50": 0.7023520240059142,
+        "map50_95": 0.5227390407444994,
+        "precision": 0.7645273023605604,
+        "recall": 0.6228612603561752,
+        "validation_inference_ms": 0.7864866064455356
+      },
+      "details": {
+        "images": 16384,
+        "bn_layers": 81,
+        "changed_bn_buffers": 243,
+        "momentum": 0.005,
+        "reset": false,
+        "seconds": 23.48931663699932,
+        "sha256": "b49bd983fe2a64d3aa64a849c24a6b7fc34a7af0e67a18e95649a16ecfd6b962"
+      }
+    },
+    {
+      "label": "preserve_m001_16384",
+      "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m001_16384.pt",
+      "sha256": "0620810bf51737a32c3e072e7d82c3f670a652d5566d43051a9ffea2c43d8991",
+      "tune": {
+        "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m001_16384.pt",
+        "sha256": "0620810bf51737a32c3e072e7d82c3f670a652d5566d43051a9ffea2c43d8991",
+        "map50": 0.6945512353701618,
+        "map50_95": 0.5153815466837603,
+        "precision": 0.7625225903680949,
+        "recall": 0.6099684768533462,
+        "validation_inference_ms": 0.7872208339829712
+      },
+      "details": {
+        "images": 16384,
+        "bn_layers": 81,
+        "changed_bn_buffers": 243,
+        "momentum": 0.01,
+        "reset": false,
+        "seconds": 22.8216379659998,
+        "sha256": "0620810bf51737a32c3e072e7d82c3f670a652d5566d43051a9ffea2c43d8991"
+      }
+    },
+    {
+      "label": "preserve_m00025_32768",
+      "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m00025_32768.pt",
+      "sha256": "abee8eba963425af547b359c96c9558ffa158a2ff4e74500bf4449eae4075281",
+      "tune": {
+        "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m00025_32768.pt",
+        "sha256": "abee8eba963425af547b359c96c9558ffa158a2ff4e74500bf4449eae4075281",
+        "map50": 0.7022582605184551,
+        "map50_95": 0.5227142131053664,
+        "precision": 0.7638337491509454,
+        "recall": 0.6228040412648531,
+        "validation_inference_ms": 0.7859109135739395
+      },
+      "details": {
+        "images": 32768,
+        "bn_layers": 81,
+        "changed_bn_buffers": 243,
+        "momentum": 0.0025,
+        "reset": false,
+        "seconds": 43.913653976000205,
+        "sha256": "abee8eba963425af547b359c96c9558ffa158a2ff4e74500bf4449eae4075281"
+      }
+    },
+    {
+      "label": "preserve_m0005_32768",
+      "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_32768.pt",
+      "sha256": "79483c34d19a17f53484f7dfd29129642427408f75e0664d49d3950298daefdc",
+      "tune": {
+        "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_32768.pt",
+        "sha256": "79483c34d19a17f53484f7dfd29129642427408f75e0664d49d3950298daefdc",
+        "map50": 0.6943928471019141,
+        "map50_95": 0.5152074338538101,
+        "precision": 0.7623968836914298,
+        "recall": 0.6091124914034032,
+        "validation_inference_ms": 0.7868027187498683
+      },
+      "details": {
+        "images": 32768,
+        "bn_layers": 81,
+        "changed_bn_buffers": 243,
+        "momentum": 0.005,
+        "reset": false,
+        "seconds": 43.92276581099941,
+        "sha256": "79483c34d19a17f53484f7dfd29129642427408f75e0664d49d3950298daefdc"
+      }
+    }
+  ],
+  "selected": {
+    "label": "preserve_m0005_8192",
+    "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_8192.pt",
+    "sha256": "6cf7d188930892a5b13cd70760aca874f407c714dc92b14351e605f8cd2e21d2",
+    "tune": {
+      "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_8192.pt",
+      "sha256": "6cf7d188930892a5b13cd70760aca874f407c714dc92b14351e605f8cd2e21d2",
+      "map50": 0.7011851358511543,
+      "map50_95": 0.5228276142209922,
+      "precision": 0.7766735438841395,
+      "recall": 0.6190439549178771,
+      "validation_inference_ms": 0.7864364433594062
+    },
+    "details": {
+      "images": 8192,
+      "bn_layers": 81,
+      "changed_bn_buffers": 243,
+      "momentum": 0.005,
+      "reset": false,
+      "seconds": 12.433444346000215,
+      "sha256": "6cf7d188930892a5b13cd70760aca874f407c714dc92b14351e605f8cd2e21d2"
+    },
+    "full_val": {
+      "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_8192.pt",
+      "sha256": "6cf7d188930892a5b13cd70760aca874f407c714dc92b14351e605f8cd2e21d2",
+      "map50": 0.5923669267410039,
+      "map50_95": 0.42560364883136315,
+      "precision": 0.6851955625883644,
+      "recall": 0.5390455517008674,
+      "validation_inference_ms": 0.776532421599768
+    }
+  }
+}

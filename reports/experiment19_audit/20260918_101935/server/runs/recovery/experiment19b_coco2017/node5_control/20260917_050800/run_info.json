@@ -1,0 +1,56 @@
+{
+  "started_at": "2026-09-17T05:08:00.339430+00:00",
+  "status": "preflight_complete",
+  "script": "/root/YOLO/scripts/recover_ladder_control_coco2017.py",
+  "script_sha256": "c367b4be7bb52c09fe063b339fa45d9fb177ce0a5c6b609bfffdb643aa98b12b",
+  "source": {
+    "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_8192.pt",
+    "sha256": "6cf7d188930892a5b13cd70760aca874f407c714dc92b14351e605f8cd2e21d2"
+  },
+  "source_stats": {
+    "parameters": 9093536,
+    "gmacs": 10.2810624
+  },
+  "data": {
+    "train": {
+      "source": "/root/YOLO/runs/analysis/experiment16_taylor_sensitivity_coco2017/20260915_122417/recovery.yaml",
+      "source_sha256": "af89233fc2a5ab03975423997197de4ca4686d220b07dff895471a62c2aac913",
+      "runtime": "/root/YOLO/runs/recovery/experiment19b_coco2017/node5_control/20260917_050800/recovery_runtime.yaml",
+      "runtime_sha256": "af89233fc2a5ab03975423997197de4ca4686d220b07dff895471a62c2aac913",
+      "dataset_root": "/root/datasets/coco"
+    },
+    "val": {
+      "source": "/root/YOLO/configs/coco2017.yaml",
+      "source_sha256": "8c08bd8eec32f117cb891e3bec93ef3e24f14b68ce06170a1b0b48139e853bb9",
+      "runtime": "/root/YOLO/runs/recovery/experiment19b_coco2017/node5_control/20260917_050800/val_runtime.yaml",
+      "runtime_sha256": "4bea63f0c981b0e267d1798f3bedd47fa8ce75df9dbe428122dea900b6af2086",
+      "dataset_root": "/root/datasets/coco"
+    }
+  },
+  "configuration": {
+    "node": "5",
+    "source": "runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_8192.pt",
+    "data": "/root/YOLO/runs/analysis/experiment16_taylor_sensitivity_coco2017/20260915_122417/recovery.yaml",
+    "val_data": "/root/YOLO/configs/coco2017.yaml",
+    "dataset_root": "/root/datasets/coco",
+    "epochs": 20,
+    "imgsz": 640,
+    "batch": 128,
+    "nbs": 128,
+    "val_batch": 128,
+    "workers": 8,
+    "close_mosaic": 10,
+    "device": "0",
+    "seed": 42,
+    "execute": false
+  },
+  "environment": {
+    "python": "3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:09:17) [GCC 11.2.0]",
+    "platform": "Linux-5.15.0-113-generic-x86_64-with-glibc2.35",
+    "torch": "2.13.0+cu132",
+    "ultralytics": "8.4.144",
+    "cuda_available": true,
+    "gpu": "NVIDIA A800-SXM4-80GB"
+  },
+  "elapsed_seconds": 0.9619878690000405
+}

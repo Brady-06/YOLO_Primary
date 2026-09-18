@@ -1,0 +1,97 @@
+{
+  "started_at": "2026-09-17T05:10:40.152582+00:00",
+  "status": "complete",
+  "script": "/root/YOLO/scripts/recover_ladder_control_coco2017.py",
+  "script_sha256": "181a1ecea572ca245db837dd08b940264d01eb5883d1df23457ec349ed0bd9a0",
+  "_timer": 744.996675958,
+  "source": {
+    "path": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_8192.pt",
+    "sha256": "6cf7d188930892a5b13cd70760aca874f407c714dc92b14351e605f8cd2e21d2"
+  },
+  "source_stats": {
+    "parameters": 9093536,
+    "gmacs": 10.2810624
+  },
+  "data": {
+    "train": {
+      "source": "/root/YOLO/runs/analysis/experiment16_taylor_sensitivity_coco2017/20260915_122417/recovery.yaml",
+      "source_sha256": "af89233fc2a5ab03975423997197de4ca4686d220b07dff895471a62c2aac913",
+      "runtime": "/root/YOLO/runs/recovery/experiment19b_coco2017/node5_control/20260917_051040/recovery_runtime.yaml",
+      "runtime_sha256": "af89233fc2a5ab03975423997197de4ca4686d220b07dff895471a62c2aac913",
+      "dataset_root": "/root/datasets/coco"
+    },
+    "val": {
+      "source": "/root/YOLO/configs/coco2017.yaml",
+      "source_sha256": "8c08bd8eec32f117cb891e3bec93ef3e24f14b68ce06170a1b0b48139e853bb9",
+      "runtime": "/root/YOLO/runs/recovery/experiment19b_coco2017/node5_control/20260917_051040/val_runtime.yaml",
+      "runtime_sha256": "4bea63f0c981b0e267d1798f3bedd47fa8ce75df9dbe428122dea900b6af2086",
+      "dataset_root": "/root/datasets/coco"
+    }
+  },
+  "configuration": {
+    "node": "5",
+    "source": "runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_8192.pt",
+    "data": "/root/YOLO/runs/analysis/experiment16_taylor_sensitivity_coco2017/20260915_122417/recovery.yaml",
+    "val_data": "/root/YOLO/configs/coco2017.yaml",
+    "dataset_root": "/root/datasets/coco",
+    "epochs": 20,
+    "imgsz": 640,
+    "batch": 128,
+    "nbs": 128,
+    "val_batch": 128,
+    "workers": 8,
+    "close_mosaic": 10,
+    "device": "0",
+    "seed": 42,
+    "execute": true
+  },
+  "environment": {
+    "python": "3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:09:17) [GCC 11.2.0]",
+    "platform": "Linux-5.15.0-113-generic-x86_64-with-glibc2.35",
+    "torch": "2.13.0+cu132",
+    "ultralytics": "8.4.144",
+    "cuda_available": true,
+    "gpu": "NVIDIA A800-SXM4-80GB"
+  },
+  "finished_at": "2026-09-17T07:52:22.297709+00:00",
+  "selected_checkpoint": "source",
+  "selected_stats": {
+    "parameters": 9093536,
+    "gmacs": 10.2810624
+  },
+  "results": [
+    {
+      "node": "5",
+      "checkpoint": "source",
+      "tune_map50_95": 0.5228276142209922,
+      "tune_map50": 0.7011851358511543,
+      "weights": "/root/YOLO/runs/recovery/experiment19_bn_recalibration_coco2017/20260915_133506/preserve_m0005_8192.pt",
+      "sha256": "6cf7d188930892a5b13cd70760aca874f407c714dc92b14351e605f8cd2e21d2",
+      "selected": true,
+      "val_map50_95": 0.42560364883136315,
+      "val_map50": 0.5923669267410039,
+      "val_precision": 0.6851955625883644,
+      "val_recall": 0.5390455517008674
+    },
+    {
+      "node": "5",
+      "checkpoint": "best",
+      "tune_map50_95": 0.45416129375846226,
+      "tune_map50": 0.622733166510715,
+      "weights": "/root/YOLO/runs/recovery/experiment19b_coco2017/node5_control/20260917_051040/training/weights/best.pt",
+      "sha256": "304790993eb166e336c00fe864d6339624fc720a40b437f2f91efae622533adc",
+      "selected": false
+    },
+    {
+      "node": "5",
+      "checkpoint": "last",
+      "tune_map50_95": 0.45416129375846226,
+      "tune_map50": 0.622733166510715,
+      "weights": "/root/YOLO/runs/recovery/experiment19b_coco2017/node5_control/20260917_051040/training/weights/last.pt",
+      "sha256": "b5c65eaa72333c934fb0b4b102397475b1a4c3e60d662469beaa32a86eefd763",
+      "selected": false
+    }
+  ],
+  "finalized_posthoc": true,
+  "finalized_note": "原脚本 write_report 在 comparison.csv 之后崩溃（KeyError: map50_95），训练与评估数据完整无损；本脚本从 comparison.csv 重建 report.md 并补全本状态。"
+}

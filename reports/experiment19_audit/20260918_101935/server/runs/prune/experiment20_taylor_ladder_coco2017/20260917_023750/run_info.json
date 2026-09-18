@@ -1,0 +1,89 @@
+{
+  "started_at": "2026-09-17T02:37:50.170631+00:00",
+  "status": "preflight_complete",
+  "configuration": {
+    "weights": "/root/YOLO/weights/yolo11s.pt",
+    "stage5_run": "runs/prune/experiment17_tiered_taylor_coco2017/20260915_123525",
+    "sensitivity_run": "runs/analysis/experiment16_taylor_sensitivity_coco2017/20260915_122417",
+    "data": "/root/YOLO/configs/coco2017.yaml",
+    "dataset_root": "/root/datasets/coco",
+    "calibration_images": 2048,
+    "calibration_batch": 32,
+    "bn_batch": 128,
+    "val_batch": 128,
+    "channel_step": 8,
+    "min_remaining_ratio": 0.5,
+    "max_steps": 160,
+    "imgsz": 640,
+    "workers": 8,
+    "device": "0",
+    "seed": 42,
+    "execute": false
+  },
+  "cap_schedule": {
+    "0.1": {
+      "low": 0.25,
+      "medium": 0.125,
+      "high": 0.0625
+    },
+    "0.15": {
+      "low": 0.375,
+      "medium": 0.25,
+      "high": 0.125
+    },
+    "0.2": {
+      "low": 0.5,
+      "medium": 0.375,
+      "high": 0.25
+    }
+  },
+  "source": {
+    "path": "/root/YOLO/weights/yolo11s.pt",
+    "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5"
+  },
+  "stage5": {
+    "path": "/root/YOLO/runs/prune/experiment17_tiered_taylor_coco2017/20260915_123525/pruned_raw.pt",
+    "sha256": "2d30d957891025d1c091a4a2af5baea343564eddf6f043102283d501f9b80468"
+  },
+  "tiers": {
+    "model.7.conv": "low",
+    "model.19.cv2.conv": "low",
+    "model.20.conv": "low",
+    "model.5.conv": "low",
+    "model.8.m.0.m.1.cv1.conv": "low",
+    "model.22.m.0.cv2.conv": "low",
+    "model.8.m.0.m.0.cv1.conv": "low",
+    "model.6.cv2.conv": "low",
+    "model.3.conv": "low",
+    "model.22.cv2.conv": "low",
+    "model.4.cv2.conv": "low",
+    "model.2.cv2.conv": "low",
+    "model.17.conv": "low",
+    "model.13.m.0.cv1.conv": "low",
+    "model.22.m.0.m.0.cv1.conv": "medium",
+    "model.6.m.0.m.0.cv1.conv": "medium",
+    "model.19.m.0.cv1.conv": "medium",
+    "model.22.m.0.m.1.cv1.conv": "medium",
+    "model.6.m.0.cv2.conv": "medium",
+    "model.8.m.0.m.0.cv2.conv": "medium",
+    "model.13.cv2.conv": "medium",
+    "model.8.m.0.m.1.cv2.conv": "medium",
+    "model.6.m.0.m.1.cv1.conv": "medium",
+    "model.22.m.0.m.1.cv2.conv": "medium",
+    "model.22.m.0.m.0.cv2.conv": "medium",
+    "model.8.m.0.cv2.conv": "medium",
+    "model.8.cv2.conv": "medium",
+    "model.6.m.0.m.1.cv2.conv": "high",
+    "model.16.cv2.conv": "high",
+    "model.8.m.0.cv1.conv": "high",
+    "model.6.m.0.cv1.conv": "high",
+    "model.1.conv": "high",
+    "model.22.m.0.cv1.conv": "high",
+    "model.6.m.0.m.0.cv2.conv": "high",
+    "model.9.cv1.conv": "high"
+  },
+  "baseline": {
+    "parameters": 9458752,
+    "gmacs": 10.7990592
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "started_at": "2026-09-17T13:14:27.831384+00:00",
+  "status": "complete",
+  "script": "/root/YOLO/scripts/recover_ladder_yolo_kd_coco2017.py",
+  "script_sha256": "90beedded8698c8375a02d659dfd6587713691d9344c7f38298a89307289eb71",
+  "source": {
+    "path": "/root/YOLO/runs/prune/experiment20_taylor_ladder_coco2017/20260917_023832/stage_15/bn_m0005_8192.pt",
+    "sha256": "6b6c29d091358a8cefbe6360315463bad1e25186c012a4ff8850e39c73e8e675"
+  },
+  "teacher": {
+    "name": "yolo11m",
+    "path": "/root/YOLO/yolo11m.pt",
+    "sha256": "d5ffc1a674953a08e11a8d21e022781b1b23a19b730afc309290bd9fb5305b95"
+  },
+  "source_stats": {
+    "parameters": 8063896,
+    "gmacs": 9.2184224
+  },
+  "data": {
+    "train": {
+      "source": "/root/YOLO/runs/analysis/experiment16_taylor_sensitivity_coco2017/20260915_122417/recovery.yaml",
+      "source_sha256": "af89233fc2a5ab03975423997197de4ca4686d220b07dff895471a62c2aac913",
+      "runtime": "/root/YOLO/runs/recovery/experiment19b_coco2017/node15_yolo11m_kd/20260917_131427/recovery_runtime.yaml",
+      "runtime_sha256": "af89233fc2a5ab03975423997197de4ca4686d220b07dff895471a62c2aac913",
+      "dataset_root": "/root/datasets/coco"
+    },
+    "val": {
+      "source": "/root/YOLO/configs/coco2017.yaml",
+      "source_sha256": "8c08bd8eec32f117cb891e3bec93ef3e24f14b68ce06170a1b0b48139e853bb9",
+      "runtime": "/root/YOLO/runs/recovery/experiment19b_coco2017/node15_yolo11m_kd/20260917_131427/val_runtime.yaml",
+      "runtime_sha256": "4bea63f0c981b0e267d1798f3bedd47fa8ce75df9dbe428122dea900b6af2086",
+      "dataset_root": "/root/datasets/coco"
+    }
+  },
+  "configuration": {
+    "node": "15",
+    "source": "runs/prune/experiment20_taylor_ladder_coco2017/20260917_023832/stage_15/bn_m0005_8192.pt",
+    "teacher": "yolo11m.pt",
+    "teacher_name": "yolo11m",
+    "data": "/root/YOLO/runs/analysis/experiment16_taylor_sensitivity_coco2017/20260915_122417/recovery.yaml",
+    "val_data": "/root/YOLO/configs/coco2017.yaml",
+    "dataset_root": "/root/datasets/coco",
+    "epochs": 20,
+    "imgsz": 640,
+    "batch": 128,
+    "nbs": 128,
+    "val_batch": 128,
+    "workers": 8,
+    "close_mosaic": 10,
+    "kd_weight": 0.5,
+    "kd_warmup": 2,
+    "device": "0",
+    "seed": 42,
+    "execute": true
+  },
+  "environment": {
+    "python": "3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:09:17) [GCC 11.2.0]",
+    "platform": "Linux-5.15.0-113-generic-x86_64-with-glibc2.35",
+    "torch": "2.13.0+cu132",
+    "ultralytics": "8.4.144",
+    "cuda_available": true,
+    "gpu": "NVIDIA A800-SXM4-80GB"
+  },
+  "training_settings": {
+    "model": "/root/YOLO/runs/prune/experiment20_taylor_ladder_coco2017/20260917_023832/stage_15/bn_m0005_8192.pt",
+    "data": "/root/YOLO/runs/recovery/experiment19b_coco2017/node15_yolo11m_kd/20260917_131427/recovery_runtime.yaml",
+    "epochs": 20,
+    "imgsz": 640,
+    "batch": 128,
+    "nbs": 128,
+    "device": "0",
+    "workers": 8,
+    "patience": 20,
+    "close_mosaic": 10,
+    "amp": true,
+    "plots": true,
+    "seed": 42,
+    "deterministic": true,
+    "project": "/root/YOLO/runs/recovery/experiment19b_coco2017/node15_yolo11m_kd/20260917_131427",
+    "name": "training",
+    "exist_ok": false,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "lrf": 0.1,
+    "warmup_epochs": 1.0,
+    "warmup_bias_lr": 0.01,
+    "weight_decay": 0.0005,
+    "mosaic": 0.5,
+    "fliplr": 0.5,
+    "scale": 0.3,
+    "translate": 0.1,
+    "hsv_h": 0.015,
+    "hsv_s": 0.7,
+    "hsv_v": 0.4
+  },
+  "peak_vram_gb": 33.11781692504883,
+  "finished_at": "2026-09-17T15:59:18.512454+00:00",
+  "elapsed_seconds": 9890.680711563,
+  "selected_checkpoint": "best",
+  "selected_stats": {
+    "parameters": 8063896,
+    "gmacs": 9.2184224
+  },
+  "results": [
+    {
+      "node": "15",
+      "checkpoint": "source",
+      "tune_map50_95": 0.3112494021325204,
+      "tune_map50": 0.4668718146239497,
+      "weights": "/root/YOLO/runs/prune/experiment20_taylor_ladder_coco2017/20260917_023832/stage_15/bn_m0005_8192.pt",
+      "sha256": "6b6c29d091358a8cefbe6360315463bad1e25186c012a4ff8850e39c73e8e675",
+      "selected": false
+    },
+    {
+      "node": "15",
+      "checkpoint": "best",
+      "tune_map50_95": 0.4521202415193646,
+      "tune_map50": 0.6188023687767696,
+      "weights": "/root/YOLO/runs/recovery/experiment19b_coco2017/node15_yolo11m_kd/20260917_131427/training/weights/best_clean.pt",
+      "sha256": "ca696770e3121b698a5ff003c8f317e55c09e48e0e8edeaf7db857d4057ffecc",
+      "selected": true,
+      "val_map50_95": 0.42458664148500924,
+      "val_map50": 0.589771124830278,
+      "val_precision": 0.6641605518506645,
+      "val_recall": 0.544806049645705
+    },
+    {
+      "node": "15",
+      "checkpoint": "last",
+      "tune_map50_95": 0.4521202415193646,
+      "tune_map50": 0.6188023687767696,
+      "weights": "/root/YOLO/runs/recovery/experiment19b_coco2017/node15_yolo11m_kd/20260917_131427/training/weights/last_clean.pt",
+      "sha256": "b5aca6b7757787a0f0ffb86fb57f4127bd1dc429fc3b87a05a05c011f5c6fefa",
+      "selected": false
+    }
+  ]
+}

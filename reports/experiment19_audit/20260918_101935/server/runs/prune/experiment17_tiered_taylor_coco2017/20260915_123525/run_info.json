@@ -1,0 +1,4363 @@
+{
+  "started_at": "2026-09-15T12:35:25.281802+00:00",
+  "status": "complete",
+  "script": "/root/YOLO/scripts/prune_taylor_tiered_coco2017.py",
+  "source": {
+    "path": "/root/YOLO/weights/yolo11s.pt",
+    "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5"
+  },
+  "sensitivity": {
+    "run": "/root/YOLO/runs/analysis/experiment16_taylor_sensitivity_coco2017/20260915_122417",
+    "rows": 35,
+    "tiers": {
+      "low": 14,
+      "medium": 13,
+      "high": 8
+    }
+  },
+  "configuration": {
+    "weights": "/root/YOLO/weights/yolo11s.pt",
+    "data": "/root/YOLO/configs/coco2017.yaml",
+    "dataset_root": "/root/datasets/coco",
+    "sensitivity_run": "/root/YOLO/runs/analysis/experiment16_taylor_sensitivity_coco2017/20260915_122417",
+    "target_reduction": 0.05,
+    "low_fraction": 0.4,
+    "medium_fraction": 0.35,
+    "low_cap": 0.125,
+    "medium_cap": 0.0625,
+    "channel_step": 8,
+    "min_remaining_ratio": 0.5,
+    "max_steps": 32,
+    "calibration_images": 2048,
+    "calibration_batch": 32,
+    "val_batch": 128,
+    "imgsz": 640,
+    "workers": 8,
+    "device": "0",
+    "seed": 42,
+    "execute": true
+  },
+  "data": {
+    "source": "/root/YOLO/configs/coco2017.yaml",
+    "source_sha256": "8c08bd8eec32f117cb891e3bec93ef3e24f14b68ce06170a1b0b48139e853bb9",
+    "runtime": "/root/YOLO/runs/prune/experiment17_tiered_taylor_coco2017/20260915_123525/coco2017_runtime.yaml",
+    "runtime_sha256": "4bea63f0c981b0e267d1798f3bedd47fa8ce75df9dbe428122dea900b6af2086",
+    "dataset_root": "/root/datasets/coco",
+    "list_counts": {
+      "train": null,
+      "val": null
+    }
+  },
+  "steps": [
+    {
+      "step": 1,
+      "layer": "model.22.m.0.cv2.conv",
+      "tier": "low",
+      "layer_cap": 16,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.003133208017970901,
+      "parameters": 9454640,
+      "gmacs": 10.7974144,
+      "step_gmac_saved": 0.001644800000001112,
+      "total_compute_reduction": 0.00015230956415179797,
+      "score_per_gmac": 1.9049173260996977,
+      "layer_removed_total": 8,
+      "before_channels": 128,
+      "after_channels": 120,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 128,
+        "after_channels": 120,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          14,
+          33,
+          67,
+          70,
+          71,
+          92,
+          118,
+          121
+        ],
+        "dependencies": [
+          {
+            "layer": "model.22.m.0.cv2.conv",
+            "direction": "out",
+            "indices": [
+              14,
+              33,
+              67,
+              70,
+              71,
+              92,
+              118,
+              121
+            ]
+          },
+          {
+            "layer": "model.22.m.0.cv3.conv",
+            "direction": "in",
+            "indices": [
+              142,
+              161,
+              195,
+              198,
+              199,
+              220,
+              246,
+              249
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.22.m.0.cv2.conv.weight": {
+            "before": [
+              128,
+              256,
+              1,
+              1
+            ],
+            "after": [
+              120,
+              256,
+              1,
+              1
+            ]
+          },
+          "model.22.m.0.cv2.bn.weight": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.22.m.0.cv2.bn.bias": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.22.m.0.cv2.bn.running_mean": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.22.m.0.cv2.bn.running_var": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.22.m.0.cv3.conv.weight": {
+            "before": [
+              256,
+              256,
+              1,
+              1
+            ],
+            "after": [
+              256,
+              248,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 2,
+      "layer": "model.19.cv2.conv",
+      "tier": "low",
+      "layer_cap": 32,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.044564363968675025,
+      "parameters": 9427400,
+      "gmacs": 10.7759488,
+      "step_gmac_saved": 0.021465599999999085,
+      "total_compute_reduction": 0.002140038272963607,
+      "score_per_gmac": 2.0760828473779873,
+      "layer_removed_total": 8,
+      "before_channels": 256,
+      "after_channels": 248,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 256,
+        "after_channels": 248,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          11,
+          28,
+          49,
+          83,
+          92,
+          116,
+          167,
+          245
+        ],
+        "dependencies": [
+          {
+            "layer": "model.19.cv2.conv",
+            "direction": "out",
+            "indices": [
+              11,
+              28,
+              49,
+              83,
+              92,
+              116,
+              167,
+              245
+            ]
+          },
+          {
+            "layer": "model.20.conv",
+            "direction": "in",
+            "indices": [
+              11,
+              28,
+              49,
+              83,
+              92,
+              116,
+              167,
+              245
+            ]
+          },
+          {
+            "layer": "model.23.cv3.1.0.0.conv",
+            "direction": "out",
+            "indices": [
+              11,
+              28,
+              49,
+              83,
+              92,
+              116,
+              167,
+              245
+            ]
+          },
+          {
+            "layer": "model.23.cv2.1.0.conv",
+            "direction": "in",
+            "indices": [
+              11,
+              28,
+              49,
+              83,
+              92,
+              116,
+              167,
+              245
+            ]
+          },
+          {
+            "layer": "model.23.cv3.1.0.1.conv",
+            "direction": "in",
+            "indices": [
+              11,
+              28,
+              49,
+              83,
+              92,
+              116,
+              167,
+              245
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.19.cv2.conv.weight": {
+            "before": [
+              256,
+              384,
+              1,
+              1
+            ],
+            "after": [
+              248,
+              384,
+              1,
+              1
+            ]
+          },
+          "model.19.cv2.bn.weight": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.19.cv2.bn.bias": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.19.cv2.bn.running_mean": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.19.cv2.bn.running_var": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.20.conv.weight": {
+            "before": [
+              256,
+              256,
+              3,
+              3
+            ],
+            "after": [
+              256,
+              248,
+              3,
+              3
+            ]
+          },
+          "model.23.cv2.1.0.conv.weight": {
+            "before": [
+              64,
+              256,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              248,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.1.0.0.conv.weight": {
+            "before": [
+              256,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              248,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.weight": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.bias": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.running_mean": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.running_var": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.23.cv3.1.0.1.conv.weight": {
+            "before": [
+              128,
+              256,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              248,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 3,
+      "layer": "model.19.cv2.conv",
+      "tier": "low",
+      "layer_cap": 32,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.05227145093886065,
+      "parameters": 9400160,
+      "gmacs": 10.7544832,
+      "step_gmac_saved": 0.021465600000000862,
+      "total_compute_reduction": 0.004127766981775749,
+      "score_per_gmac": 2.435126478591726,
+      "layer_removed_total": 16,
+      "before_channels": 248,
+      "after_channels": 240,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 248,
+        "after_channels": 240,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          7,
+          24,
+          25,
+          147,
+          166,
+          176,
+          184,
+          193
+        ],
+        "dependencies": [
+          {
+            "layer": "model.19.cv2.conv",
+            "direction": "out",
+            "indices": [
+              7,
+              23,
+              24,
+              141,
+              160,
+              169,
+              177,
+              186
+            ]
+          },
+          {
+            "layer": "model.20.conv",
+            "direction": "in",
+            "indices": [
+              7,
+              23,
+              24,
+              141,
+              160,
+              169,
+              177,
+              186
+            ]
+          },
+          {
+            "layer": "model.23.cv3.1.0.0.conv",
+            "direction": "out",
+            "indices": [
+              7,
+              23,
+              24,
+              141,
+              160,
+              169,
+              177,
+              186
+            ]
+          },
+          {
+            "layer": "model.23.cv2.1.0.conv",
+            "direction": "in",
+            "indices": [
+              7,
+              23,
+              24,
+              141,
+              160,
+              169,
+              177,
+              186
+            ]
+          },
+          {
+            "layer": "model.23.cv3.1.0.1.conv",
+            "direction": "in",
+            "indices": [
+              7,
+              23,
+              24,
+              141,
+              160,
+              169,
+              177,
+              186
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.19.cv2.conv.weight": {
+            "before": [
+              248,
+              384,
+              1,
+              1
+            ],
+            "after": [
+              240,
+              384,
+              1,
+              1
+            ]
+          },
+          "model.19.cv2.bn.weight": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.19.cv2.bn.bias": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.19.cv2.bn.running_mean": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.19.cv2.bn.running_var": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.20.conv.weight": {
+            "before": [
+              256,
+              248,
+              3,
+              3
+            ],
+            "after": [
+              256,
+              240,
+              3,
+              3
+            ]
+          },
+          "model.23.cv2.1.0.conv.weight": {
+            "before": [
+              64,
+              248,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              240,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.1.0.0.conv.weight": {
+            "before": [
+              248,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              240,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.weight": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.bias": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.running_mean": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.running_var": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.23.cv3.1.0.1.conv.weight": {
+            "before": [
+              128,
+              248,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              240,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 4,
+      "layer": "model.22.m.0.cv2.conv",
+      "tier": "low",
+      "layer_cap": 16,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.004183822711638641,
+      "parameters": 9396048,
+      "gmacs": 10.7528384,
+      "step_gmac_saved": 0.0016447999999993357,
+      "total_compute_reduction": 0.004280076545927325,
+      "score_per_gmac": 2.5436665318824967,
+      "layer_removed_total": 16,
+      "before_channels": 120,
+      "after_channels": 112,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 120,
+        "after_channels": 112,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          1,
+          23,
+          47,
+          86,
+          90,
+          100,
+          102,
+          125
+        ],
+        "dependencies": [
+          {
+            "layer": "model.22.m.0.cv2.conv",
+            "direction": "out",
+            "indices": [
+              1,
+              22,
+              45,
+              81,
+              85,
+              94,
+              96,
+              117
+            ]
+          },
+          {
+            "layer": "model.22.m.0.cv3.conv",
+            "direction": "in",
+            "indices": [
+              129,
+              150,
+              173,
+              209,
+              213,
+              222,
+              224,
+              245
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.22.m.0.cv2.conv.weight": {
+            "before": [
+              120,
+              256,
+              1,
+              1
+            ],
+            "after": [
+              112,
+              256,
+              1,
+              1
+            ]
+          },
+          "model.22.m.0.cv2.bn.weight": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.22.m.0.cv2.bn.bias": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.22.m.0.cv2.bn.running_mean": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.22.m.0.cv2.bn.running_var": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.22.m.0.cv3.conv.weight": {
+            "before": [
+              256,
+              248,
+              1,
+              1
+            ],
+            "after": [
+              256,
+              240,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 5,
+      "layer": "model.19.cv2.conv",
+      "tier": "low",
+      "layer_cap": 32,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.05622632415543194,
+      "parameters": 9368808,
+      "gmacs": 10.7313728,
+      "step_gmac_saved": 0.021465599999999085,
+      "total_compute_reduction": 0.006267805254739134,
+      "score_per_gmac": 2.6193688578672076,
+      "layer_removed_total": 24,
+      "before_channels": 240,
+      "after_channels": 232,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 240,
+        "after_channels": 232,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          55,
+          71,
+          129,
+          160,
+          164,
+          208,
+          241,
+          244
+        ],
+        "dependencies": [
+          {
+            "layer": "model.19.cv2.conv",
+            "direction": "out",
+            "indices": [
+              49,
+              65,
+              120,
+              150,
+              154,
+              193,
+              226,
+              229
+            ]
+          },
+          {
+            "layer": "model.20.conv",
+            "direction": "in",
+            "indices": [
+              49,
+              65,
+              120,
+              150,
+              154,
+              193,
+              226,
+              229
+            ]
+          },
+          {
+            "layer": "model.23.cv3.1.0.0.conv",
+            "direction": "out",
+            "indices": [
+              49,
+              65,
+              120,
+              150,
+              154,
+              193,
+              226,
+              229
+            ]
+          },
+          {
+            "layer": "model.23.cv2.1.0.conv",
+            "direction": "in",
+            "indices": [
+              49,
+              65,
+              120,
+              150,
+              154,
+              193,
+              226,
+              229
+            ]
+          },
+          {
+            "layer": "model.23.cv3.1.0.1.conv",
+            "direction": "in",
+            "indices": [
+              49,
+              65,
+              120,
+              150,
+              154,
+              193,
+              226,
+              229
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.19.cv2.conv.weight": {
+            "before": [
+              240,
+              384,
+              1,
+              1
+            ],
+            "after": [
+              232,
+              384,
+              1,
+              1
+            ]
+          },
+          "model.19.cv2.bn.weight": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.19.cv2.bn.bias": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.19.cv2.bn.running_mean": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.19.cv2.bn.running_var": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.20.conv.weight": {
+            "before": [
+              256,
+              240,
+              3,
+              3
+            ],
+            "after": [
+              256,
+              232,
+              3,
+              3
+            ]
+          },
+          "model.23.cv2.1.0.conv.weight": {
+            "before": [
+              64,
+              240,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              232,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.1.0.0.conv.weight": {
+            "before": [
+              240,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              232,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.weight": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.bias": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.running_mean": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.running_var": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.23.cv3.1.0.1.conv.weight": {
+            "before": [
+              128,
+              240,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              232,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 6,
+      "layer": "model.19.cv2.conv",
+      "tier": "low",
+      "layer_cap": 32,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.05932287914765766,
+      "parameters": 9341568,
+      "gmacs": 10.7099072,
+      "step_gmac_saved": 0.021465600000000862,
+      "total_compute_reduction": 0.008255533963551276,
+      "score_per_gmac": 2.7636254820575843,
+      "layer_removed_total": 32,
+      "before_channels": 232,
+      "after_channels": 224,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 232,
+        "after_channels": 224,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          8,
+          15,
+          64,
+          151,
+          180,
+          211,
+          215,
+          239
+        ],
+        "dependencies": [
+          {
+            "layer": "model.19.cv2.conv",
+            "direction": "out",
+            "indices": [
+              7,
+              13,
+              57,
+              138,
+              162,
+              190,
+              194,
+              218
+            ]
+          },
+          {
+            "layer": "model.20.conv",
+            "direction": "in",
+            "indices": [
+              7,
+              13,
+              57,
+              138,
+              162,
+              190,
+              194,
+              218
+            ]
+          },
+          {
+            "layer": "model.23.cv3.1.0.0.conv",
+            "direction": "out",
+            "indices": [
+              7,
+              13,
+              57,
+              138,
+              162,
+              190,
+              194,
+              218
+            ]
+          },
+          {
+            "layer": "model.23.cv2.1.0.conv",
+            "direction": "in",
+            "indices": [
+              7,
+              13,
+              57,
+              138,
+              162,
+              190,
+              194,
+              218
+            ]
+          },
+          {
+            "layer": "model.23.cv3.1.0.1.conv",
+            "direction": "in",
+            "indices": [
+              7,
+              13,
+              57,
+              138,
+              162,
+              190,
+              194,
+              218
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.19.cv2.conv.weight": {
+            "before": [
+              232,
+              384,
+              1,
+              1
+            ],
+            "after": [
+              224,
+              384,
+              1,
+              1
+            ]
+          },
+          "model.19.cv2.bn.weight": {
+            "before": [
+              232
+            ],
+            "after": [
+              224
+            ]
+          },
+          "model.19.cv2.bn.bias": {
+            "before": [
+              232
+            ],
+            "after": [
+              224
+            ]
+          },
+          "model.19.cv2.bn.running_mean": {
+            "before": [
+              232
+            ],
+            "after": [
+              224
+            ]
+          },
+          "model.19.cv2.bn.running_var": {
+            "before": [
+              232
+            ],
+            "after": [
+              224
+            ]
+          },
+          "model.20.conv.weight": {
+            "before": [
+              256,
+              232,
+              3,
+              3
+            ],
+            "after": [
+              256,
+              224,
+              3,
+              3
+            ]
+          },
+          "model.23.cv2.1.0.conv.weight": {
+            "before": [
+              64,
+              232,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              224,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.1.0.0.conv.weight": {
+            "before": [
+              232,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              224,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.weight": {
+            "before": [
+              232
+            ],
+            "after": [
+              224
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.bias": {
+            "before": [
+              232
+            ],
+            "after": [
+              224
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.running_mean": {
+            "before": [
+              232
+            ],
+            "after": [
+              224
+            ]
+          },
+          "model.23.cv3.1.0.0.bn.running_var": {
+            "before": [
+              232
+            ],
+            "after": [
+              224
+            ]
+          },
+          "model.23.cv3.1.0.1.conv.weight": {
+            "before": [
+              128,
+              232,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              224,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 7,
+      "layer": "model.22.cv2.conv",
+      "tier": "low",
+      "layer_cap": 64,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.016597780270785734,
+      "parameters": 9329688,
+      "gmacs": 10.7051552,
+      "step_gmac_saved": 0.0047519999999998674,
+      "total_compute_reduction": 0.00869557229577922,
+      "score_per_gmac": 3.4927988785324486,
+      "layer_removed_total": 8,
+      "before_channels": 512,
+      "after_channels": 504,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 512,
+        "after_channels": 504,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          96,
+          107,
+          128,
+          159,
+          261,
+          279,
+          448,
+          453
+        ],
+        "dependencies": [
+          {
+            "layer": "model.22.cv2.conv",
+            "direction": "out",
+            "indices": [
+              96,
+              107,
+              128,
+              159,
+              261,
+              279,
+              448,
+              453
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.0.conv",
+            "direction": "out",
+            "indices": [
+              96,
+              107,
+              128,
+              159,
+              261,
+              279,
+              448,
+              453
+            ]
+          },
+          {
+            "layer": "model.23.cv2.2.0.conv",
+            "direction": "in",
+            "indices": [
+              96,
+              107,
+              128,
+              159,
+              261,
+              279,
+              448,
+              453
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.1.conv",
+            "direction": "in",
+            "indices": [
+              96,
+              107,
+              128,
+              159,
+              261,
+              279,
+              448,
+              453
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.22.cv2.conv.weight": {
+            "before": [
+              512,
+              768,
+              1,
+              1
+            ],
+            "after": [
+              504,
+              768,
+              1,
+              1
+            ]
+          },
+          "model.22.cv2.bn.weight": {
+            "before": [
+              512
+            ],
+            "after": [
+              504
+            ]
+          },
+          "model.22.cv2.bn.bias": {
+            "before": [
+              512
+            ],
+            "after": [
+              504
+            ]
+          },
+          "model.22.cv2.bn.running_mean": {
+            "before": [
+              512
+            ],
+            "after": [
+              504
+            ]
+          },
+          "model.22.cv2.bn.running_var": {
+            "before": [
+              512
+            ],
+            "after": [
+              504
+            ]
+          },
+          "model.23.cv2.2.0.conv.weight": {
+            "before": [
+              64,
+              512,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              504,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.conv.weight": {
+            "before": [
+              512,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              504,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.weight": {
+            "before": [
+              512
+            ],
+            "after": [
+              504
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.bias": {
+            "before": [
+              512
+            ],
+            "after": [
+              504
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_mean": {
+            "before": [
+              512
+            ],
+            "after": [
+              504
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_var": {
+            "before": [
+              512
+            ],
+            "after": [
+              504
+            ]
+          },
+          "model.23.cv3.2.0.1.conv.weight": {
+            "before": [
+              128,
+              512,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              504,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 8,
+      "layer": "model.2.cv2.conv",
+      "tier": "low",
+      "layer_cap": 16,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.2863601088465657,
+      "parameters": 9319688,
+      "gmacs": 10.6261024,
+      "step_gmac_saved": 0.07905279999999948,
+      "total_compute_reduction": 0.01601591368255484,
+      "score_per_gmac": 3.6223904636719713,
+      "layer_removed_total": 8,
+      "before_channels": 128,
+      "after_channels": 120,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 128,
+        "after_channels": 120,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          16,
+          20,
+          49,
+          74,
+          87,
+          100,
+          104,
+          117
+        ],
+        "dependencies": [
+          {
+            "layer": "model.2.cv2.conv",
+            "direction": "out",
+            "indices": [
+              16,
+              20,
+              49,
+              74,
+              87,
+              100,
+              104,
+              117
+            ]
+          },
+          {
+            "layer": "model.3.conv",
+            "direction": "in",
+            "indices": [
+              16,
+              20,
+              49,
+              74,
+              87,
+              100,
+              104,
+              117
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.2.cv2.conv.weight": {
+            "before": [
+              128,
+              96,
+              1,
+              1
+            ],
+            "after": [
+              120,
+              96,
+              1,
+              1
+            ]
+          },
+          "model.2.cv2.bn.weight": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.2.cv2.bn.bias": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.2.cv2.bn.running_mean": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.2.cv2.bn.running_var": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.3.conv.weight": {
+            "before": [
+              128,
+              128,
+              3,
+              3
+            ],
+            "after": [
+              128,
+              120,
+              3,
+              3
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 9,
+      "layer": "model.22.cv2.conv",
+      "tier": "low",
+      "layer_cap": 64,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.018689361677843408,
+      "parameters": 9307808,
+      "gmacs": 10.6213504,
+      "step_gmac_saved": 0.0047519999999998674,
+      "total_compute_reduction": 0.016455952014782893,
+      "score_per_gmac": 3.932946481027763,
+      "layer_removed_total": 16,
+      "before_channels": 504,
+      "after_channels": 496,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 504,
+        "after_channels": 496,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          11,
+          28,
+          61,
+          80,
+          117,
+          160,
+          166,
+          403
+        ],
+        "dependencies": [
+          {
+            "layer": "model.22.cv2.conv",
+            "direction": "out",
+            "indices": [
+              11,
+              28,
+              61,
+              80,
+              115,
+              156,
+              162,
+              397
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.0.conv",
+            "direction": "out",
+            "indices": [
+              11,
+              28,
+              61,
+              80,
+              115,
+              156,
+              162,
+              397
+            ]
+          },
+          {
+            "layer": "model.23.cv2.2.0.conv",
+            "direction": "in",
+            "indices": [
+              11,
+              28,
+              61,
+              80,
+              115,
+              156,
+              162,
+              397
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.1.conv",
+            "direction": "in",
+            "indices": [
+              11,
+              28,
+              61,
+              80,
+              115,
+              156,
+              162,
+              397
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.22.cv2.conv.weight": {
+            "before": [
+              504,
+              768,
+              1,
+              1
+            ],
+            "after": [
+              496,
+              768,
+              1,
+              1
+            ]
+          },
+          "model.22.cv2.bn.weight": {
+            "before": [
+              504
+            ],
+            "after": [
+              496
+            ]
+          },
+          "model.22.cv2.bn.bias": {
+            "before": [
+              504
+            ],
+            "after": [
+              496
+            ]
+          },
+          "model.22.cv2.bn.running_mean": {
+            "before": [
+              504
+            ],
+            "after": [
+              496
+            ]
+          },
+          "model.22.cv2.bn.running_var": {
+            "before": [
+              504
+            ],
+            "after": [
+              496
+            ]
+          },
+          "model.23.cv2.2.0.conv.weight": {
+            "before": [
+              64,
+              504,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              496,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.conv.weight": {
+            "before": [
+              504,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              496,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.weight": {
+            "before": [
+              504
+            ],
+            "after": [
+              496
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.bias": {
+            "before": [
+              504
+            ],
+            "after": [
+              496
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_mean": {
+            "before": [
+              504
+            ],
+            "after": [
+              496
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_var": {
+            "before": [
+              504
+            ],
+            "after": [
+              496
+            ]
+          },
+          "model.23.cv3.2.0.1.conv.weight": {
+            "before": [
+              128,
+              504,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              496,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 10,
+      "layer": "model.22.cv2.conv",
+      "tier": "low",
+      "layer_cap": 64,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.019756279220928263,
+      "parameters": 9295928,
+      "gmacs": 10.6165984,
+      "step_gmac_saved": 0.0047519999999998674,
+      "total_compute_reduction": 0.016895990347010947,
+      "score_per_gmac": 4.157466166020374,
+      "layer_removed_total": 24,
+      "before_channels": 496,
+      "after_channels": 488,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 496,
+        "after_channels": 488,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          155,
+          245,
+          255,
+          299,
+          315,
+          386,
+          440,
+          499
+        ],
+        "dependencies": [
+          {
+            "layer": "model.22.cv2.conv",
+            "direction": "out",
+            "indices": [
+              147,
+              234,
+              244,
+              286,
+              302,
+              373,
+              426,
+              483
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.0.conv",
+            "direction": "out",
+            "indices": [
+              147,
+              234,
+              244,
+              286,
+              302,
+              373,
+              426,
+              483
+            ]
+          },
+          {
+            "layer": "model.23.cv2.2.0.conv",
+            "direction": "in",
+            "indices": [
+              147,
+              234,
+              244,
+              286,
+              302,
+              373,
+              426,
+              483
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.1.conv",
+            "direction": "in",
+            "indices": [
+              147,
+              234,
+              244,
+              286,
+              302,
+              373,
+              426,
+              483
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.22.cv2.conv.weight": {
+            "before": [
+              496,
+              768,
+              1,
+              1
+            ],
+            "after": [
+              488,
+              768,
+              1,
+              1
+            ]
+          },
+          "model.22.cv2.bn.weight": {
+            "before": [
+              496
+            ],
+            "after": [
+              488
+            ]
+          },
+          "model.22.cv2.bn.bias": {
+            "before": [
+              496
+            ],
+            "after": [
+              488
+            ]
+          },
+          "model.22.cv2.bn.running_mean": {
+            "before": [
+              496
+            ],
+            "after": [
+              488
+            ]
+          },
+          "model.22.cv2.bn.running_var": {
+            "before": [
+              496
+            ],
+            "after": [
+              488
+            ]
+          },
+          "model.23.cv2.2.0.conv.weight": {
+            "before": [
+              64,
+              496,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              488,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.conv.weight": {
+            "before": [
+              496,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              488,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.weight": {
+            "before": [
+              496
+            ],
+            "after": [
+              488
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.bias": {
+            "before": [
+              496
+            ],
+            "after": [
+              488
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_mean": {
+            "before": [
+              496
+            ],
+            "after": [
+              488
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_var": {
+            "before": [
+              496
+            ],
+            "after": [
+              488
+            ]
+          },
+          "model.23.cv3.2.0.1.conv.weight": {
+            "before": [
+              128,
+              496,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              488,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 11,
+      "layer": "model.2.cv2.conv",
+      "tier": "low",
+      "layer_cap": 16,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.3308684789953986,
+      "parameters": 9285928,
+      "gmacs": 10.5375456,
+      "step_gmac_saved": 0.07905280000000126,
+      "total_compute_reduction": 0.024216331733786678,
+      "score_per_gmac": 4.185411256722006,
+      "layer_removed_total": 16,
+      "before_channels": 120,
+      "after_channels": 112,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 120,
+        "after_channels": 112,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          4,
+          5,
+          24,
+          42,
+          43,
+          60,
+          70,
+          95
+        ],
+        "dependencies": [
+          {
+            "layer": "model.2.cv2.conv",
+            "direction": "out",
+            "indices": [
+              4,
+              5,
+              22,
+              40,
+              41,
+              57,
+              67,
+              90
+            ]
+          },
+          {
+            "layer": "model.3.conv",
+            "direction": "in",
+            "indices": [
+              4,
+              5,
+              22,
+              40,
+              41,
+              57,
+              67,
+              90
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.2.cv2.conv.weight": {
+            "before": [
+              120,
+              96,
+              1,
+              1
+            ],
+            "after": [
+              112,
+              96,
+              1,
+              1
+            ]
+          },
+          "model.2.cv2.bn.weight": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.2.cv2.bn.bias": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.2.cv2.bn.running_mean": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.2.cv2.bn.running_var": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.3.conv.weight": {
+            "before": [
+              128,
+              120,
+              3,
+              3
+            ],
+            "after": [
+              128,
+              112,
+              3,
+              3
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 12,
+      "layer": "model.22.cv2.conv",
+      "tier": "low",
+      "layer_cap": 64,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.020715879494673572,
+      "parameters": 9274048,
+      "gmacs": 10.5327936,
+      "step_gmac_saved": 0.0047519999999998674,
+      "total_compute_reduction": 0.024656370066014732,
+      "score_per_gmac": 4.359402250562742,
+      "layer_removed_total": 32,
+      "before_channels": 488,
+      "after_channels": 480,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 488,
+        "after_channels": 480,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          33,
+          57,
+          72,
+          207,
+          287,
+          298,
+          482,
+          510
+        ],
+        "dependencies": [
+          {
+            "layer": "model.22.cv2.conv",
+            "direction": "out",
+            "indices": [
+              31,
+              55,
+              69,
+              195,
+              271,
+              282,
+              459,
+              486
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.0.conv",
+            "direction": "out",
+            "indices": [
+              31,
+              55,
+              69,
+              195,
+              271,
+              282,
+              459,
+              486
+            ]
+          },
+          {
+            "layer": "model.23.cv2.2.0.conv",
+            "direction": "in",
+            "indices": [
+              31,
+              55,
+              69,
+              195,
+              271,
+              282,
+              459,
+              486
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.1.conv",
+            "direction": "in",
+            "indices": [
+              31,
+              55,
+              69,
+              195,
+              271,
+              282,
+              459,
+              486
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.22.cv2.conv.weight": {
+            "before": [
+              488,
+              768,
+              1,
+              1
+            ],
+            "after": [
+              480,
+              768,
+              1,
+              1
+            ]
+          },
+          "model.22.cv2.bn.weight": {
+            "before": [
+              488
+            ],
+            "after": [
+              480
+            ]
+          },
+          "model.22.cv2.bn.bias": {
+            "before": [
+              488
+            ],
+            "after": [
+              480
+            ]
+          },
+          "model.22.cv2.bn.running_mean": {
+            "before": [
+              488
+            ],
+            "after": [
+              480
+            ]
+          },
+          "model.22.cv2.bn.running_var": {
+            "before": [
+              488
+            ],
+            "after": [
+              480
+            ]
+          },
+          "model.23.cv2.2.0.conv.weight": {
+            "before": [
+              64,
+              488,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              480,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.conv.weight": {
+            "before": [
+              488,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              480,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.weight": {
+            "before": [
+              488
+            ],
+            "after": [
+              480
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.bias": {
+            "before": [
+              488
+            ],
+            "after": [
+              480
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_mean": {
+            "before": [
+              488
+            ],
+            "after": [
+              480
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_var": {
+            "before": [
+              488
+            ],
+            "after": [
+              480
+            ]
+          },
+          "model.23.cv3.2.0.1.conv.weight": {
+            "before": [
+              128,
+              488,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              480,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 13,
+      "layer": "model.22.cv2.conv",
+      "tier": "low",
+      "layer_cap": 64,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.02169542187039042,
+      "parameters": 9262168,
+      "gmacs": 10.5280416,
+      "step_gmac_saved": 0.0047519999999998674,
+      "total_compute_reduction": 0.025096408398242676,
+      "score_per_gmac": 4.5655349053853165,
+      "layer_removed_total": 40,
+      "before_channels": 480,
+      "after_channels": 472,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 480,
+        "after_channels": 472,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          77,
+          151,
+          206,
+          242,
+          329,
+          331,
+          396,
+          441
+        ],
+        "dependencies": [
+          {
+            "layer": "model.22.cv2.conv",
+            "direction": "out",
+            "indices": [
+              71,
+              140,
+              191,
+              226,
+              305,
+              307,
+              371,
+              414
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.0.conv",
+            "direction": "out",
+            "indices": [
+              71,
+              140,
+              191,
+              226,
+              305,
+              307,
+              371,
+              414
+            ]
+          },
+          {
+            "layer": "model.23.cv2.2.0.conv",
+            "direction": "in",
+            "indices": [
+              71,
+              140,
+              191,
+              226,
+              305,
+              307,
+              371,
+              414
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.1.conv",
+            "direction": "in",
+            "indices": [
+              71,
+              140,
+              191,
+              226,
+              305,
+              307,
+              371,
+              414
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.22.cv2.conv.weight": {
+            "before": [
+              480,
+              768,
+              1,
+              1
+            ],
+            "after": [
+              472,
+              768,
+              1,
+              1
+            ]
+          },
+          "model.22.cv2.bn.weight": {
+            "before": [
+              480
+            ],
+            "after": [
+              472
+            ]
+          },
+          "model.22.cv2.bn.bias": {
+            "before": [
+              480
+            ],
+            "after": [
+              472
+            ]
+          },
+          "model.22.cv2.bn.running_mean": {
+            "before": [
+              480
+            ],
+            "after": [
+              472
+            ]
+          },
+          "model.22.cv2.bn.running_var": {
+            "before": [
+              480
+            ],
+            "after": [
+              472
+            ]
+          },
+          "model.23.cv2.2.0.conv.weight": {
+            "before": [
+              64,
+              480,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              472,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.conv.weight": {
+            "before": [
+              480,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              472,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.weight": {
+            "before": [
+              480
+            ],
+            "after": [
+              472
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.bias": {
+            "before": [
+              480
+            ],
+            "after": [
+              472
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_mean": {
+            "before": [
+              480
+            ],
+            "after": [
+              472
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_var": {
+            "before": [
+              480
+            ],
+            "after": [
+              472
+            ]
+          },
+          "model.23.cv3.2.0.1.conv.weight": {
+            "before": [
+              128,
+              480,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              472,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 14,
+      "layer": "model.22.cv2.conv",
+      "tier": "low",
+      "layer_cap": 64,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.022454170314631483,
+      "parameters": 9250288,
+      "gmacs": 10.5232896,
+      "step_gmac_saved": 0.0047519999999998674,
+      "total_compute_reduction": 0.02553644673047073,
+      "score_per_gmac": 4.725204190789586,
+      "layer_removed_total": 48,
+      "before_channels": 472,
+      "after_channels": 464,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 472,
+        "after_channels": 464,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          10,
+          55,
+          78,
+          112,
+          154,
+          296,
+          308,
+          375
+        ],
+        "dependencies": [
+          {
+            "layer": "model.22.cv2.conv",
+            "direction": "out",
+            "indices": [
+              10,
+              52,
+              71,
+              102,
+              141,
+              271,
+              281,
+              345
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.0.conv",
+            "direction": "out",
+            "indices": [
+              10,
+              52,
+              71,
+              102,
+              141,
+              271,
+              281,
+              345
+            ]
+          },
+          {
+            "layer": "model.23.cv2.2.0.conv",
+            "direction": "in",
+            "indices": [
+              10,
+              52,
+              71,
+              102,
+              141,
+              271,
+              281,
+              345
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.1.conv",
+            "direction": "in",
+            "indices": [
+              10,
+              52,
+              71,
+              102,
+              141,
+              271,
+              281,
+              345
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.22.cv2.conv.weight": {
+            "before": [
+              472,
+              768,
+              1,
+              1
+            ],
+            "after": [
+              464,
+              768,
+              1,
+              1
+            ]
+          },
+          "model.22.cv2.bn.weight": {
+            "before": [
+              472
+            ],
+            "after": [
+              464
+            ]
+          },
+          "model.22.cv2.bn.bias": {
+            "before": [
+              472
+            ],
+            "after": [
+              464
+            ]
+          },
+          "model.22.cv2.bn.running_mean": {
+            "before": [
+              472
+            ],
+            "after": [
+              464
+            ]
+          },
+          "model.22.cv2.bn.running_var": {
+            "before": [
+              472
+            ],
+            "after": [
+              464
+            ]
+          },
+          "model.23.cv2.2.0.conv.weight": {
+            "before": [
+              64,
+              472,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              464,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.conv.weight": {
+            "before": [
+              472,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              464,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.weight": {
+            "before": [
+              472
+            ],
+            "after": [
+              464
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.bias": {
+            "before": [
+              472
+            ],
+            "after": [
+              464
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_mean": {
+            "before": [
+              472
+            ],
+            "after": [
+              464
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_var": {
+            "before": [
+              472
+            ],
+            "after": [
+              464
+            ]
+          },
+          "model.23.cv3.2.0.1.conv.weight": {
+            "before": [
+              128,
+              472,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              464,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 15,
+      "layer": "model.22.cv2.conv",
+      "tier": "low",
+      "layer_cap": 64,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.023311038184147037,
+      "parameters": 9238408,
+      "gmacs": 10.5185376,
+      "step_gmac_saved": 0.0047519999999998674,
+      "total_compute_reduction": 0.025976485062698784,
+      "score_per_gmac": 4.905521503398083,
+      "layer_removed_total": 56,
+      "before_channels": 464,
+      "after_channels": 456,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 464,
+        "after_channels": 456,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          43,
+          91,
+          108,
+          147,
+          148,
+          313,
+          424,
+          447
+        ],
+        "dependencies": [
+          {
+            "layer": "model.22.cv2.conv",
+            "direction": "out",
+            "indices": [
+              39,
+              80,
+              95,
+              131,
+              132,
+              279,
+              383,
+              404
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.0.conv",
+            "direction": "out",
+            "indices": [
+              39,
+              80,
+              95,
+              131,
+              132,
+              279,
+              383,
+              404
+            ]
+          },
+          {
+            "layer": "model.23.cv2.2.0.conv",
+            "direction": "in",
+            "indices": [
+              39,
+              80,
+              95,
+              131,
+              132,
+              279,
+              383,
+              404
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.1.conv",
+            "direction": "in",
+            "indices": [
+              39,
+              80,
+              95,
+              131,
+              132,
+              279,
+              383,
+              404
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.22.cv2.conv.weight": {
+            "before": [
+              464,
+              768,
+              1,
+              1
+            ],
+            "after": [
+              456,
+              768,
+              1,
+              1
+            ]
+          },
+          "model.22.cv2.bn.weight": {
+            "before": [
+              464
+            ],
+            "after": [
+              456
+            ]
+          },
+          "model.22.cv2.bn.bias": {
+            "before": [
+              464
+            ],
+            "after": [
+              456
+            ]
+          },
+          "model.22.cv2.bn.running_mean": {
+            "before": [
+              464
+            ],
+            "after": [
+              456
+            ]
+          },
+          "model.22.cv2.bn.running_var": {
+            "before": [
+              464
+            ],
+            "after": [
+              456
+            ]
+          },
+          "model.23.cv2.2.0.conv.weight": {
+            "before": [
+              64,
+              464,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              456,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.conv.weight": {
+            "before": [
+              464,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              456,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.weight": {
+            "before": [
+              464
+            ],
+            "after": [
+              456
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.bias": {
+            "before": [
+              464
+            ],
+            "after": [
+              456
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_mean": {
+            "before": [
+              464
+            ],
+            "after": [
+              456
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_var": {
+            "before": [
+              464
+            ],
+            "after": [
+              456
+            ]
+          },
+          "model.23.cv3.2.0.1.conv.weight": {
+            "before": [
+              128,
+              464,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              456,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 16,
+      "layer": "model.22.cv2.conv",
+      "tier": "low",
+      "layer_cap": 64,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.02416065366105613,
+      "parameters": 9226528,
+      "gmacs": 10.5137856,
+      "step_gmac_saved": 0.0047519999999998674,
+      "total_compute_reduction": 0.02641652339492684,
+      "score_per_gmac": 5.08431263911128,
+      "layer_removed_total": 64,
+      "before_channels": 456,
+      "after_channels": 448,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 456,
+        "after_channels": 448,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          74,
+          98,
+          229,
+          236,
+          354,
+          422,
+          478,
+          489
+        ],
+        "dependencies": [
+          {
+            "layer": "model.22.cv2.conv",
+            "direction": "out",
+            "indices": [
+              65,
+              84,
+              200,
+              207,
+              311,
+              375,
+              425,
+              435
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.0.conv",
+            "direction": "out",
+            "indices": [
+              65,
+              84,
+              200,
+              207,
+              311,
+              375,
+              425,
+              435
+            ]
+          },
+          {
+            "layer": "model.23.cv2.2.0.conv",
+            "direction": "in",
+            "indices": [
+              65,
+              84,
+              200,
+              207,
+              311,
+              375,
+              425,
+              435
+            ]
+          },
+          {
+            "layer": "model.23.cv3.2.0.1.conv",
+            "direction": "in",
+            "indices": [
+              65,
+              84,
+              200,
+              207,
+              311,
+              375,
+              425,
+              435
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.22.cv2.conv.weight": {
+            "before": [
+              456,
+              768,
+              1,
+              1
+            ],
+            "after": [
+              448,
+              768,
+              1,
+              1
+            ]
+          },
+          "model.22.cv2.bn.weight": {
+            "before": [
+              456
+            ],
+            "after": [
+              448
+            ]
+          },
+          "model.22.cv2.bn.bias": {
+            "before": [
+              456
+            ],
+            "after": [
+              448
+            ]
+          },
+          "model.22.cv2.bn.running_mean": {
+            "before": [
+              456
+            ],
+            "after": [
+              448
+            ]
+          },
+          "model.22.cv2.bn.running_var": {
+            "before": [
+              456
+            ],
+            "after": [
+              448
+            ]
+          },
+          "model.23.cv2.2.0.conv.weight": {
+            "before": [
+              64,
+              456,
+              3,
+              3
+            ],
+            "after": [
+              64,
+              448,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.conv.weight": {
+            "before": [
+              456,
+              1,
+              3,
+              3
+            ],
+            "after": [
+              448,
+              1,
+              3,
+              3
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.weight": {
+            "before": [
+              456
+            ],
+            "after": [
+              448
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.bias": {
+            "before": [
+              456
+            ],
+            "after": [
+              448
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_mean": {
+            "before": [
+              456
+            ],
+            "after": [
+              448
+            ]
+          },
+          "model.23.cv3.2.0.0.bn.running_var": {
+            "before": [
+              456
+            ],
+            "after": [
+              448
+            ]
+          },
+          "model.23.cv3.2.0.1.conv.weight": {
+            "before": [
+              128,
+              456,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              448,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 17,
+      "layer": "model.3.conv",
+      "tier": "low",
+      "layer_cap": 16,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.30358463249285705,
+      "parameters": 9217424,
+      "gmacs": 10.45552,
+      "step_gmac_saved": 0.05826560000000036,
+      "total_compute_reduction": 0.03181195636005041,
+      "score_per_gmac": 5.210357955515007,
+      "layer_removed_total": 8,
+      "before_channels": 128,
+      "after_channels": 120,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 128,
+        "after_channels": 120,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          41,
+          48,
+          65,
+          68,
+          95,
+          100,
+          114,
+          115
+        ],
+        "dependencies": [
+          {
+            "layer": "model.3.conv",
+            "direction": "out",
+            "indices": [
+              41,
+              48,
+              65,
+              68,
+              95,
+              100,
+              114,
+              115
+            ]
+          },
+          {
+            "layer": "model.4.cv1.conv",
+            "direction": "in",
+            "indices": [
+              41,
+              48,
+              65,
+              68,
+              95,
+              100,
+              114,
+              115
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.3.conv.weight": {
+            "before": [
+              128,
+              112,
+              3,
+              3
+            ],
+            "after": [
+              120,
+              112,
+              3,
+              3
+            ]
+          },
+          "model.3.bn.weight": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.3.bn.bias": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.3.bn.running_mean": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.3.bn.running_var": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.4.cv1.conv.weight": {
+            "before": [
+              128,
+              128,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              120,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 18,
+      "layer": "model.4.cv2.conv",
+      "tier": "low",
+      "layer_cap": 32,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.25364674438606016,
+      "parameters": 9196416,
+      "gmacs": 10.4095424,
+      "step_gmac_saved": 0.04597760000000051,
+      "total_compute_reduction": 0.03606951242567513,
+      "score_per_gmac": 5.516746076046974,
+      "layer_removed_total": 8,
+      "before_channels": 256,
+      "after_channels": 248,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 256,
+        "after_channels": 248,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          35,
+          43,
+          146,
+          149,
+          184,
+          217,
+          238,
+          241
+        ],
+        "dependencies": [
+          {
+            "layer": "model.4.cv2.conv",
+            "direction": "out",
+            "indices": [
+              35,
+              43,
+              146,
+              149,
+              184,
+              217,
+              238,
+              241
+            ]
+          },
+          {
+            "layer": "model.5.conv",
+            "direction": "in",
+            "indices": [
+              35,
+              43,
+              146,
+              149,
+              184,
+              217,
+              238,
+              241
+            ]
+          },
+          {
+            "layer": "model.16.cv1.conv",
+            "direction": "in",
+            "indices": [
+              291,
+              299,
+              402,
+              405,
+              440,
+              473,
+              494,
+              497
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.4.cv2.conv.weight": {
+            "before": [
+              256,
+              192,
+              1,
+              1
+            ],
+            "after": [
+              248,
+              192,
+              1,
+              1
+            ]
+          },
+          "model.4.cv2.bn.weight": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.4.cv2.bn.bias": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.4.cv2.bn.running_mean": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.4.cv2.bn.running_var": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.5.conv.weight": {
+            "before": [
+              256,
+              256,
+              3,
+              3
+            ],
+            "after": [
+              256,
+              248,
+              3,
+              3
+            ]
+          },
+          "model.16.cv1.conv.weight": {
+            "before": [
+              128,
+              512,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              504,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 19,
+      "layer": "model.17.conv",
+      "tier": "low",
+      "layer_cap": 16,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.10752172271895688,
+      "parameters": 9185136,
+      "gmacs": 10.3914944,
+      "step_gmac_saved": 0.018048000000000286,
+      "total_compute_reduction": 0.03774076912181401,
+      "score_per_gmac": 5.957542260580406,
+      "layer_removed_total": 8,
+      "before_channels": 128,
+      "after_channels": 120,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 128,
+        "after_channels": 120,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          39,
+          45,
+          81,
+          82,
+          94,
+          110,
+          114,
+          125
+        ],
+        "dependencies": [
+          {
+            "layer": "model.17.conv",
+            "direction": "out",
+            "indices": [
+              39,
+              45,
+              81,
+              82,
+              94,
+              110,
+              114,
+              125
+            ]
+          },
+          {
+            "layer": "model.19.cv1.conv",
+            "direction": "in",
+            "indices": [
+              39,
+              45,
+              81,
+              82,
+              94,
+              110,
+              114,
+              125
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.17.conv.weight": {
+            "before": [
+              128,
+              128,
+              3,
+              3
+            ],
+            "after": [
+              120,
+              128,
+              3,
+              3
+            ]
+          },
+          "model.17.bn.weight": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.17.bn.bias": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.17.bn.running_mean": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.17.bn.running_var": {
+            "before": [
+              128
+            ],
+            "after": [
+              120
+            ]
+          },
+          "model.19.cv1.conv.weight": {
+            "before": [
+              256,
+              384,
+              1,
+              1
+            ],
+            "after": [
+              256,
+              376,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 20,
+      "layer": "model.20.conv",
+      "tier": "low",
+      "layer_cap": 32,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.04761534684439539,
+      "parameters": 9164896,
+      "gmacs": 10.3833984,
+      "step_gmac_saved": 0.008095999999998327,
+      "total_compute_reduction": 0.038490464058202334,
+      "score_per_gmac": 5.88134224856784,
+      "layer_removed_total": 8,
+      "before_channels": 256,
+      "after_channels": 248,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 256,
+        "after_channels": 248,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          2,
+          73,
+          74,
+          144,
+          166,
+          210,
+          232,
+          251
+        ],
+        "dependencies": [
+          {
+            "layer": "model.20.conv",
+            "direction": "out",
+            "indices": [
+              2,
+              73,
+              74,
+              144,
+              166,
+              210,
+              232,
+              251
+            ]
+          },
+          {
+            "layer": "model.22.cv1.conv",
+            "direction": "in",
+            "indices": [
+              2,
+              73,
+              74,
+              144,
+              166,
+              210,
+              232,
+              251
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.20.conv.weight": {
+            "before": [
+              256,
+              224,
+              3,
+              3
+            ],
+            "after": [
+              248,
+              224,
+              3,
+              3
+            ]
+          },
+          "model.20.bn.weight": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.20.bn.bias": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.20.bn.running_mean": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.20.bn.running_var": {
+            "before": [
+              256
+            ],
+            "after": [
+              248
+            ]
+          },
+          "model.22.cv1.conv.weight": {
+            "before": [
+              512,
+              768,
+              1,
+              1
+            ],
+            "after": [
+              512,
+              760,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 21,
+      "layer": "model.4.cv2.conv",
+      "tier": "low",
+      "layer_cap": 32,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.2872415437886957,
+      "parameters": 9143888,
+      "gmacs": 10.3374208,
+      "step_gmac_saved": 0.04597760000000051,
+      "total_compute_reduction": 0.04274802012382706,
+      "score_per_gmac": 6.2474236103818495,
+      "layer_removed_total": 16,
+      "before_channels": 248,
+      "after_channels": 240,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 248,
+        "after_channels": 240,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          4,
+          33,
+          73,
+          112,
+          117,
+          202,
+          207,
+          233
+        ],
+        "dependencies": [
+          {
+            "layer": "model.4.cv2.conv",
+            "direction": "out",
+            "indices": [
+              4,
+              33,
+              71,
+              110,
+              115,
+              197,
+              202,
+              227
+            ]
+          },
+          {
+            "layer": "model.5.conv",
+            "direction": "in",
+            "indices": [
+              4,
+              33,
+              71,
+              110,
+              115,
+              197,
+              202,
+              227
+            ]
+          },
+          {
+            "layer": "model.16.cv1.conv",
+            "direction": "in",
+            "indices": [
+              260,
+              289,
+              327,
+              366,
+              371,
+              453,
+              458,
+              483
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.4.cv2.conv.weight": {
+            "before": [
+              248,
+              192,
+              1,
+              1
+            ],
+            "after": [
+              240,
+              192,
+              1,
+              1
+            ]
+          },
+          "model.4.cv2.bn.weight": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.4.cv2.bn.bias": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.4.cv2.bn.running_mean": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.4.cv2.bn.running_var": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.5.conv.weight": {
+            "before": [
+              256,
+              248,
+              3,
+              3
+            ],
+            "after": [
+              256,
+              240,
+              3,
+              3
+            ]
+          },
+          "model.16.cv1.conv.weight": {
+            "before": [
+              128,
+              504,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              496,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 22,
+      "layer": "model.3.conv",
+      "tier": "low",
+      "layer_cap": 16,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.37638094389694743,
+      "parameters": 9134784,
+      "gmacs": 10.2791552,
+      "step_gmac_saved": 0.05826560000000036,
+      "total_compute_reduction": 0.04814345308895063,
+      "score_per_gmac": 6.459745439795438,
+      "layer_removed_total": 16,
+      "before_channels": 120,
+      "after_channels": 112,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 120,
+        "after_channels": 112,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          5,
+          39,
+          70,
+          71,
+          73,
+          93,
+          96,
+          105
+        ],
+        "dependencies": [
+          {
+            "layer": "model.3.conv",
+            "direction": "out",
+            "indices": [
+              5,
+              39,
+              66,
+              67,
+              69,
+              89,
+              91,
+              99
+            ]
+          },
+          {
+            "layer": "model.4.cv1.conv",
+            "direction": "in",
+            "indices": [
+              5,
+              39,
+              66,
+              67,
+              69,
+              89,
+              91,
+              99
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.3.conv.weight": {
+            "before": [
+              120,
+              112,
+              3,
+              3
+            ],
+            "after": [
+              112,
+              112,
+              3,
+              3
+            ]
+          },
+          "model.3.bn.weight": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.3.bn.bias": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.3.bn.running_mean": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.3.bn.running_var": {
+            "before": [
+              120
+            ],
+            "after": [
+              112
+            ]
+          },
+          "model.4.cv1.conv.weight": {
+            "before": [
+              128,
+              120,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              112,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 23,
+      "layer": "model.20.conv",
+      "tier": "low",
+      "layer_cap": 32,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.05363199222483672,
+      "parameters": 9114544,
+      "gmacs": 10.2710592,
+      "step_gmac_saved": 0.008096000000000103,
+      "total_compute_reduction": 0.04889314802533917,
+      "score_per_gmac": 6.624504968482713,
+      "layer_removed_total": 16,
+      "before_channels": 248,
+      "after_channels": 240,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 248,
+        "after_channels": 240,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          4,
+          32,
+          50,
+          51,
+          70,
+          88,
+          94,
+          142
+        ],
+        "dependencies": [
+          {
+            "layer": "model.20.conv",
+            "direction": "out",
+            "indices": [
+              3,
+              31,
+              49,
+              50,
+              69,
+              85,
+              91,
+              139
+            ]
+          },
+          {
+            "layer": "model.22.cv1.conv",
+            "direction": "in",
+            "indices": [
+              3,
+              31,
+              49,
+              50,
+              69,
+              85,
+              91,
+              139
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.20.conv.weight": {
+            "before": [
+              248,
+              224,
+              3,
+              3
+            ],
+            "after": [
+              240,
+              224,
+              3,
+              3
+            ]
+          },
+          "model.20.bn.weight": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.20.bn.bias": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.20.bn.running_mean": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.20.bn.running_var": {
+            "before": [
+              248
+            ],
+            "after": [
+              240
+            ]
+          },
+          "model.22.cv1.conv.weight": {
+            "before": [
+              512,
+              760,
+              1,
+              1
+            ],
+            "after": [
+              512,
+              752,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": 24,
+      "layer": "model.4.cv2.conv",
+      "tier": "low",
+      "layer_cap": 32,
+      "status": "accepted",
+      "reason": "",
+      "taylor_cost": 0.32848205184563994,
+      "parameters": 9093536,
+      "gmacs": 10.2250816,
+      "step_gmac_saved": 0.04597760000000051,
+      "total_compute_reduction": 0.053150704090963896,
+      "score_per_gmac": 7.144393179409893,
+      "layer_removed_total": 24,
+      "before_channels": 240,
+      "after_channels": 232,
+      "removed_channels": 8,
+      "details": {
+        "before_channels": 240,
+        "after_channels": 232,
+        "removed_channels": 8,
+        "removed_original_ids": [
+          21,
+          25,
+          105,
+          120,
+          133,
+          153,
+          161,
+          192
+        ],
+        "dependencies": [
+          {
+            "layer": "model.4.cv2.conv",
+            "direction": "out",
+            "indices": [
+              20,
+              24,
+              100,
+              113,
+              126,
+              144,
+              152,
+              182
+            ]
+          },
+          {
+            "layer": "model.5.conv",
+            "direction": "in",
+            "indices": [
+              20,
+              24,
+              100,
+              113,
+              126,
+              144,
+              152,
+              182
+            ]
+          },
+          {
+            "layer": "model.16.cv1.conv",
+            "direction": "in",
+            "indices": [
+              276,
+              280,
+              356,
+              369,
+              382,
+              400,
+              408,
+              438
+            ]
+          }
+        ],
+        "changed_tensors": {
+          "model.4.cv2.conv.weight": {
+            "before": [
+              240,
+              192,
+              1,
+              1
+            ],
+            "after": [
+              232,
+              192,
+              1,
+              1
+            ]
+          },
+          "model.4.cv2.bn.weight": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.4.cv2.bn.bias": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.4.cv2.bn.running_mean": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.4.cv2.bn.running_var": {
+            "before": [
+              240
+            ],
+            "after": [
+              232
+            ]
+          },
+          "model.5.conv.weight": {
+            "before": [
+              256,
+              240,
+              3,
+              3
+            ],
+            "after": [
+              256,
+              232,
+              3,
+              3
+            ]
+          },
+          "model.16.cv1.conv.weight": {
+            "before": [
+              128,
+              496,
+              1,
+              1
+            ],
+            "after": [
+              128,
+              488,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "search_result": {
+    "stop_reason": "target_reached",
+    "accepted_steps": 24,
+    "baseline_parameters": 9458752,
+    "parameters": 9093536,
+    "parameter_reduction": 0.03861143626558772,
+    "baseline_gmacs": 10.7990592,
+    "gmacs": 10.2250816,
+    "compute_reduction": 0.053150704090963896,
+    "checkpoint": "/root/YOLO/runs/prune/experiment17_tiered_taylor_coco2017/20260915_123525/pruned_raw.pt",
+    "checkpoint_sha256": "2d30d957891025d1c091a4a2af5baea343564eddf6f043102283d501f9b80468",
+    "tier_caps_channels": {
+      "model.7.conv": 64,
+      "model.19.cv2.conv": 32,
+      "model.20.conv": 32,
+      "model.5.conv": 32,
+      "model.8.m.0.m.1.cv1.conv": 16,
+      "model.22.m.0.cv2.conv": 16,
+      "model.8.m.0.m.0.cv1.conv": 16,
+      "model.6.cv2.conv": 32,
+      "model.3.conv": 16,
+      "model.22.cv2.conv": 64,
+      "model.4.cv2.conv": 32,
+      "model.2.cv2.conv": 16,
+      "model.17.conv": 16,
+      "model.13.m.0.cv1.conv": 8,
+      "model.22.m.0.m.0.cv1.conv": 8,
+      "model.6.m.0.m.0.cv1.conv": 0,
+      "model.19.m.0.cv1.conv": 0,
+      "model.22.m.0.m.1.cv1.conv": 8,
+      "model.6.m.0.cv2.conv": 0,
+      "model.8.m.0.m.0.cv2.conv": 8,
+      "model.13.cv2.conv": 16,
+      "model.8.m.0.m.1.cv2.conv": 8,
+      "model.6.m.0.m.1.cv1.conv": 0,
+      "model.22.m.0.m.1.cv2.conv": 8,
+      "model.22.m.0.m.0.cv2.conv": 8,
+      "model.8.m.0.cv2.conv": 8,
+      "model.8.cv2.conv": 32,
+      "model.6.m.0.m.1.cv2.conv": 0,
+      "model.16.cv2.conv": 0,
+      "model.8.m.0.cv1.conv": 0,
+      "model.6.m.0.cv1.conv": 0,
+      "model.1.conv": 0,
+      "model.22.m.0.cv1.conv": 0,
+      "model.6.m.0.m.0.cv2.conv": 0,
+      "model.9.cv1.conv": 0
+    },
+    "reload_verified": true
+  },
+  "raw_validation": {
+    "map50": 0.5810923375475291,
+    "map50_95": 0.41805858950711594,
+    "precision": 0.6775279852651345,
+    "recall": 0.5338566621244227,
+    "validation_inference_ms": 0.7948836725996443
+  },
+  "finished_at": "2026-09-15T12:43:08.717320+00:00"
+}
