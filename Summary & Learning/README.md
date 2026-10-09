@@ -11,8 +11,10 @@
 | 顺序 | 文件 | 主要内容 | 适合解决的问题 |
 | ---: | --- | --- | --- |
 | 1 | [项目结构与数据流讲解.ipynb](./项目结构与数据流讲解.ipynb) | 目录职责、数据来源、脚本输入输出、端到端数据流 | “项目里的东西都在哪，前后怎样连接？” |
-| 2 | [pruning.ipynb](./pruning.ipynb) | 结构化剪枝、敏感度、独立法、贪心法、梯度分档、测速 | “剪枝原理是什么，关键代码怎样写？” |
-| 3 | [distillation.ipynb](./distillation.ipynb) | DINOv2 特征蒸馏、单/多尺度、损失、命令、结果解释 | “蒸馏怎样接入 YOLO，为什么 best 没提高？” |
+| 2 | [01pruning.ipynb](./01pruning.ipynb) | 结构化剪枝、敏感度、独立法、贪心法、梯度分档、测速 | “剪枝原理是什么，关键代码怎样写？” |
+| 3 | [02distillation.ipynb](./02distillation.ipynb) | 特征蒸馏、单/多尺度、损失、命令、结果解释 | “蒸馏怎样接入 YOLO？” |
+| 4 | [03coco2017.ipynb](./03coco2017.ipynb) | 完整数据集上的剪枝、恢复、蒸馏和比较主线 | “正式实验从输入到结果怎样连接？” |
+| 5 | [04完整项目终端与代码框架.md](./04完整项目终端与代码框架.md) | 从 Git 获取到训练、剪枝、蒸馏、报告和 push 的通用模板 | “拿到新项目后，终端和代码按什么顺序写？” |
 
 根目录的总体项目说明见 [../README.md](../README.md)，各次实验的正式结果见 [../reports/](../reports/)。
 
@@ -41,7 +43,7 @@
 
 ### 剪枝学习笔记
 
-[pruning.ipynb](./pruning.ipynb) 按“原理 → Bash 命令 → 关键代码”讲解：
+[01pruning.ipynb](./01pruning.ipynb) 按“原理 → Bash 命令 → 关键代码”讲解：
 
 - 结构化剪枝与非结构化剪枝的区别；
 - L1 masking 敏感度分析；
@@ -53,7 +55,7 @@
 
 ### 蒸馏学习笔记
 
-[distillation.ipynb](./distillation.ipynb) 按同样格式讲解：
+[02distillation.ipynb](./02distillation.ipynb) 按同样格式讲解：
 
 - 知识蒸馏、输出蒸馏和特征蒸馏；
 - DINOv2 ViT-S/14 为什么使用 644×644 教师输入；
